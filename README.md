@@ -1,8 +1,10 @@
 yii2 captcha
 ============
+yii2 验证码功能，能够处理文字、数字及外文字符集功能。
+
 yii2 captcha with Ability to recognize Arabic and Persian numbers.
 
-![screenshot](http://www.daimakuai.com/tmp/captcha.jpg)
+![screenshot](https://raw.githubusercontent.com/daimakuai/yii2-captcha/master/screen.jpg)
 
 Installation
 ------------
@@ -47,6 +49,7 @@ Once the extension is installed, simply modify your controler, add or change met
     }
 ```
 
+在视图里增加
 In view
 ```php
 use daimakuai\captcha\Captcha;
@@ -54,4 +57,19 @@ use daimakuai\captcha\Captcha;
 $form->field($model, 'verifyCode')->widget(Captcha::className())
 ?>
 
+或增加
+or add
 <?php echo Captcha::widget(['name'=>'captchaimg','captchaAction'=>'captcha']); ?>
+
+在后台Action获取验证码并验证，添加如下代码
+Where background checks are needed add.
+
+<?php
+
+$check = $this->createAction('captcha')->validate($captchCode, false);
+if($check){
+	//验证码正确
+}else{
+	//验证码错误
+}
+?>
