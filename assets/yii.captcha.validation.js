@@ -1,4 +1,4 @@
-var validation = yii.validation;
+var validation = var validation = new Object();//yii.validation;
 
 validation.changeInvalidNumbers = function(input){
     var enNumbers = {

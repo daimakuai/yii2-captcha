@@ -54,3 +54,4 @@ use daimakuai\captcha\Captcha;
 $form->field($model, 'verifyCode')->widget(Captcha::className())
 ?>
 
+<?php echo Captcha::widget(['name'=>'captchaimg','captchaAction'=>'captcha']); ?>
